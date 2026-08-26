@@ -1,0 +1,32 @@
+# Environnement virtuel Python
+env/
+venv/
+
+# Fichiers Python compilés
+__pycache__/
+*.pyc
+
+# Django
+*.sqlite3
+db.sqlite3
+
+# Node / React
+node_modules/
+dist/
+build/
+
+# Flutter
+.dart_tool/
+.flutter-plugin-dependencies
+build/
+
+# Fichiers sensibles
+.env
+*.log
+
+# Système
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
