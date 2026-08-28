@@ -1,0 +1,75 @@
+body {
+  margin: 0;
+  background-color: #f4f6f8;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+h1 {
+  color: #1f3864;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 24px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+thead {
+  background-color: #1f3864;
+  color: white;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+tbody tr {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+  background-color: #eef2f7;
+}
+
+.statut {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: bold;
+  color: white;
+}
+
+.statut-nouveau { background-color: #3498db; }
+.statut-en_cours { background-color: #f39c12; }
+.statut-resolu { background-color: #27ae60; }
+.statut-cloture { background-color: #7f8c8d; }
+
+.gravite {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: bold;
+  color: white;
+}
+
+.gravite-critique { background-color: #e74c3c; }
+.gravite-elevee { background-color: #e67e22; }
+.gravite-moyenne { background-color: #f1c40f; color: #333; }
+.gravite-faible { background-color: #95a5a6; }
