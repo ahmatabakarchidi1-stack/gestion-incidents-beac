@@ -29,3 +29,28 @@ def health_check(request):
         "serveur": "ok",
         "base_de_donnees": db_status,
     })
+
+import joblib
+import os
+
+# Charger le modèle une seule fois au démarrage du serveur
+CHEMIN_MODELE = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'ia', 'modele_categorie.pkl')
+try:
+    modele_ia = joblib.load(CHEMIN_MODELE)
+except FileNotFoundError:
+    modele_ia = None
+
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
+@api_view(['POST'])
+def predire_categorie(request):
+    if modele_ia is None:
+        return Response({"erreur": "Modèle IA non disponible"}, status=500)
+
+    texte = request.data.get('description', '')
+    if not texte:
+        return Response({"erreur": "Le champ 'description' est requis"}, status=400)
+
+    prediction = modele_ia.predict([texte])[0]
+    return Response({"categorie_predite": prediction})
