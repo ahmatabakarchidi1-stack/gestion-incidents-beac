@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from .models import Categorie, Incident, Profil
-from .serializers import CategorieSerializer, IncidentSerializer, ProfilSerializer
+from .models import Categorie, Incident, Profil, Commentaire
+from .serializers import CategorieSerializer, IncidentSerializer, ProfilSerializer , CommentaireSerializer
 
 class CategorieViewSet(viewsets.ModelViewSet):
     queryset = Categorie.objects.all()
@@ -13,6 +13,10 @@ class IncidentViewSet(viewsets.ModelViewSet):
 class ProfilViewSet(viewsets.ModelViewSet):
     queryset = Profil.objects.all()
     serializer_class = ProfilSerializer
+
+class CommentaireViewSet(viewsets.ModelViewSet):
+    queryset = Commentaire.objects.all()
+    serializer_class = CommentaireSerializer
 
 from django.http import JsonResponse
 from django.db import connection

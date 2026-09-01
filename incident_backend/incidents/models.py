@@ -51,3 +51,16 @@ class Profil(models.Model):
 
     def __str__(self):
         return f"{self.user.username} - {self.get_role_display()}"
+
+
+class Commentaire(models.Model):
+    incident = models.ForeignKey(Incident, on_delete=models.CASCADE, related_name='commentaires')
+    auteur = models.ForeignKey(User, on_delete=models.CASCADE)
+    message = models.TextField()
+    date_creation = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Commentaire de {self.auteur.username} sur {self.incident.titre}"
+
+    class Meta:
+        ordering = ['date_creation']
